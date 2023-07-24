@@ -1,9 +1,16 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
+  plugins: [
+    new HTMLWebpackPlugin({
+      filename: './index.html',
+    }),
+    new CleanWebpackPlugin(),
+  ],
+  devtool: 'inline-source-map',
+  mode: 'development',
   entry: {
     header: {
       import: './modules/header/header.js',
@@ -28,31 +35,22 @@ module.exports = {
       chunks: 'all',
     },
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: './index.html',
-    }),
-    new CleanWebpackPlugin(),
-  ],
-  devtool: 'inline-source-map',
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 1000000,
-  },
   devServer: {
     static: path.join(__dirname, './public'),
     open: true,
     port: 8564,
   },
+  performance: {
+    maxAssetSize: 1000000,
+  },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ['css-loader', 'style-loader'],
       },
       {
-        test: /\.(?:ico|gif|png|jpg|svg)$/i,
+        test: /\.(?:ico|gif|png|jpe?g|svg)$/i,
         type: 'asset/resource',
         use: [
           'file-loader',
