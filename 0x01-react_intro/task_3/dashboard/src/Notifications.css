@@ -1,0 +1,16 @@
+:root {
+  --hol-red: #e1484c;
+}
+
+div .Notifications {
+  padding: 2px;
+  border: 1px dashed var(--hol-red);
+}
+
+div .Notifications ul li[data-priority='default'] {
+  color: blue;
+}
+
+div .Notifications ul li[data-priority='urgent'] {
+  color: red;
+}
