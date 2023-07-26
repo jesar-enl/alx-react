@@ -40,6 +40,7 @@ div {
 }
 
 .App-body p {
+  font-weight: bold;
   margin: 48px 0 0 32px;
 }
 
@@ -53,4 +54,18 @@ div {
 .App-footer p {
   text-align: center;
   padding: 16px 0;
+}
+
+form {
+  display: flex;
+  margin: 10px 0 0 32px;
+}
+
+form label {
+  font-weight: bold;
+  justify-content: space-evenly;
+}
+
+form input {
+  margin-right: 10px;
 }

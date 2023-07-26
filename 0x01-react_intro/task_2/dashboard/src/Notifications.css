@@ -1,8 +1,16 @@
 :root {
-  --hold: rgb(54, 115, 126);
+  --hol-red: #e1484c;
 }
 
 div .Notifications {
-  padding: 5px;
-  border: 0.5rem solid var(--hold);
+  padding: 2px;
+  border: 1px dashed var(--hol-red);
+}
+
+div .Notifications ul li[data-priority='default'] {
+  color: blue;
+}
+
+div .Notifications ul li[data-priority='urgent'] {
+  color: red;
 }
