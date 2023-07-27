@@ -47,11 +47,22 @@ module.exports = {
   devServer: {
     static: path.join('./', 'dist'),
     compress: true,
-    port: 5000,
+    port: 8564,
+    hot: true,
     historyApiFallback: true,
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
   },
   performance: {
     maxAssetSize: 1000000,
     maxEntrypointSize: 1000000,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      name: 'index.html',
+      inject: false,
+      template: './dist/index.html',
+    })
+  ],
 };
