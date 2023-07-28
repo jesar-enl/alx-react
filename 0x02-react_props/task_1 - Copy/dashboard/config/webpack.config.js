@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -48,6 +49,7 @@ module.exports = {
     compress: true,
     port: 8564,
     hot: true,
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
@@ -56,4 +58,11 @@ module.exports = {
     maxAssetSize: 1000000,
     maxEntrypointSize: 1000000,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      name: 'index.html',
+      inject: false,
+      template: './dist/index.html',
+    })
+  ],
 };
