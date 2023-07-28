@@ -9,17 +9,15 @@ describe('Testing the <Notifications /> Component', () => {
     wrapper = shallow(<Notifications />);
   });
 
-  it('<Notifications /> is rendered without crashing', () => {
-    expect(wrapper).to.not.be.an('undefined');
+  it('renders ul', () => {
+    expect(wrapper.find('ul')).toBeDefined();
   });
 
   it('<Notifications /> renders three list items', () => {
-    expect(wrapper.find('li')).to.have.lengthOf(3);
+    expect(wrapper.find('li')).toHaveLength(3);
   });
 
   it("<Notifications /> render the text 'Here is the list of notifications'", () => {
-    expect(wrapper.contains(<p>Here is the list of notifications</p>)).to.equal(
-      true
-    );
+    expect(wrapper.find('p').text()).toBe('Here is the list of notifications');
   });
 });
