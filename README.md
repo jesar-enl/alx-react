@@ -25,3 +25,4 @@
 - How to define types for components
 - How to use Fragments
 - When to use a key to improve a loop’s performance
+
